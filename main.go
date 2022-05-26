@@ -1,22 +1,18 @@
 package main
 
-import "log"
+import (
+	"fmt"
+	"log"
+
+	"github.com/namnguyen191/go-crypto/wallet"
+)
 
 func init() {
 	log.SetPrefix("Blockchain: ")
 }
 
 func main() {
-	myBlockchainAddress := "my_blockchain_address"
-	blockChain := NewBlockChain(myBlockchainAddress)
-	blockChain.Print()
-
-	blockChain.AddTransaction("A", "B", 1.0)
-	blockChain.Mining()
-	blockChain.Print()
-
-	blockChain.AddTransaction("C", "D", 2.0)
-	blockChain.AddTransaction("X", "Y", 3.0)
-	blockChain.Mining()
-	blockChain.Print()
+	w := wallet.NewWallet()
+	fmt.Println(w.PrivateKeyStr())
+	fmt.Println(w.PublicKeyStr())
 }
